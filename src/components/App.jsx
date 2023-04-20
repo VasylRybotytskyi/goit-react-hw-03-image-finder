@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Modal } from './Searchbar/Modal/Modal';
+import { Modal } from './Modal/Modal';
+import { Searchbar } from './Searchbar/Searchbar';
 
 export class App extends Component {
   state = {
@@ -14,6 +15,7 @@ export class App extends Component {
   render() {
     return (
       <>
+        <Searchbar />
         <button onClick={this.toggleModal}>Відкрити</button>
         {this.state.showModal && <Modal onClose={this.toggleModal} />}
       </>
