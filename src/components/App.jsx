@@ -26,8 +26,8 @@ export class App extends Component {
         {/* <ToastContainer autoClose={3000} /> */}
         <Searchbar onSubmit={this.handleFormSubmit} />
         <ImageGallery
-          onOpenModal={this.toggleModal}
           search={this.state.search}
+          toggleModal={this.toggleModal}
         />
         <button onClick={this.toggleModal}>Відкрити</button>
         {this.state.showModal && <Modal onClose={this.toggleModal} />}

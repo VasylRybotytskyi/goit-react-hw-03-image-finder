@@ -24,7 +24,10 @@ export class ImageGallery extends Component {
   render() {
     return (
       <GalleryList>
-        <ImageGalleryItem items={this.state.search} />
+        <ImageGalleryItem
+          items={this.state.search}
+          toggleModal={this.props.toggleModal}
+        />
       </GalleryList>
     );
   }

@@ -9,7 +9,11 @@ export class ImageGalleryItem extends Component {
           items.hits &&
           items.hits.map(el => (
             <GalleryListItem key={el.id}>
-              <GalleryImage src={el.webformatURL} alt={el.user} />
+              <GalleryImage
+                src={el.webformatURL}
+                alt={el.user}
+                onClick={this.props.toggleModal}
+              />
             </GalleryListItem>
           ))}
       </>
