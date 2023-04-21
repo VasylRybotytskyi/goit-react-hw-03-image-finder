@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ImageGalleryItem } from '../ImageGalleryItem/ImageGalleryItem';
+import { GalleryList } from './ImageGallery.styled';
 
 export class ImageGallery extends Component {
   state = {
@@ -22,9 +23,9 @@ export class ImageGallery extends Component {
 
   render() {
     return (
-      <ul>
+      <GalleryList>
         <ImageGalleryItem items={this.state.search} />
-      </ul>
+      </GalleryList>
     );
   }
 }
