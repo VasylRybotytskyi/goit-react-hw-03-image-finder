@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+// import { toast } from 'react-toastify';
 export class Searchbar extends Component {
   state = {
     search: '',
@@ -9,7 +9,11 @@ export class Searchbar extends Component {
   };
   handleSubmit = e => {
     e.preventDefault();
-    // this.props.onSubmit(this.state.search);
+    if (this.state.search.trim() === '') {
+      alert('Wow so easy !');
+      return;
+    }
+    this.props.onSubmit(this.state.search);
     this.setState({ search: '' });
   };
   render() {
