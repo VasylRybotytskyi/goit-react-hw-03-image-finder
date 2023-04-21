@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { GalleryImage, GalleryListItem } from './ImageGalleryItem.styled';
 export class ImageGalleryItem extends Component {
   render() {
     const { items } = this.props;
@@ -7,9 +8,9 @@ export class ImageGalleryItem extends Component {
         {items &&
           items.hits &&
           items.hits.map(el => (
-            <li key={el.id}>
-              <img src={el.previewURL} alt={el.user} />
-            </li>
+            <GalleryListItem key={el.id}>
+              <GalleryImage src={el.webformatURL} alt={el.user} />
+            </GalleryListItem>
           ))}
       </>
     );
