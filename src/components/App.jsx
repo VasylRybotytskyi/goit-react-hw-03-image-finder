@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Modal } from './Modal/Modal';
 import { Searchbar } from './Searchbar/Searchbar';
 import { ImageGallery } from './ImageGallery/ImageGallery';
 import { GlobalStyle } from './GlobaStyle';
@@ -7,13 +6,7 @@ import { GlobalStyle } from './GlobaStyle';
 
 export class App extends Component {
   state = {
-    showModal: false,
     search: '',
-  };
-  toggleModal = () => {
-    this.setState(({ showModal }) => ({
-      showModal: !showModal,
-    }));
   };
 
   handleFormSubmit = search => {
@@ -23,14 +16,8 @@ export class App extends Component {
     return (
       <>
         <GlobalStyle />
-        {/* <ToastContainer autoClose={3000} /> */}
         <Searchbar onSubmit={this.handleFormSubmit} />
-        <ImageGallery
-          search={this.state.search}
-          toggleModal={this.toggleModal}
-        />
-        <button onClick={this.toggleModal}>Відкрити</button>
-        {this.state.showModal && <Modal onClose={this.toggleModal} />}
+        <ImageGallery search={this.state.search} />
       </>
     );
   }

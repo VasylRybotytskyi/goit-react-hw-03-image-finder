@@ -19,10 +19,11 @@ export class Modal extends Component {
     }
   };
   render() {
+    const { largeImageURL } = this.props.image;
     return (
       <ModalWrapper onClick={this.handleBackdropClick}>
         <ModalContent>
-          <ModalImage src="" alt="" />
+          <ModalImage src={largeImageURL} alt="" />
         </ModalContent>
       </ModalWrapper>
     );
