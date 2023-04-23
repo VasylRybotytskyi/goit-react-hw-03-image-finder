@@ -19,32 +19,31 @@ export class App extends Component {
   };
 
   handleSubmit = async inputData => {
-    page = 1;
     if (inputData.trim() === '') {
       Notiflix.Notify.info('You cannot search by empty field, try again.'); //Перевірка чи рядок не пустий
       return;
-    } else {
-      try {
-        this.setState({ status: 'pending' });
-        const { totalHits, hits } = await fetchImages(inputData, page);
-        if (hits.length < 1) {
-          this.setState({ status: 'idle' });
-          Notiflix.Notify.failure(
-            'Sorry, there are no images matching your search query. Please try again.'
-          );
-        } else {
-          this.setState({
-            items: hits,
-            inputData,
-            totalHits: totalHits,
-            status: 'resolved',
-          });
-        }
-      } catch (error) {
-        this.setState({ status: 'rejected' });
+    }
+    this.setState({ status: 'pending' });
+    try {
+      const { totalHits, hits } = await fetchImages(inputData, page);
+      if (hits.length < 1) {
+        this.setState({ status: 'idle' });
+        Notiflix.Notify.failure(
+          'Sorry, there are no images matching your search query. Please try again.'
+        );
+      } else {
+        this.setState({
+          items: hits,
+          inputData,
+          totalHits,
+          status: 'resolved',
+        });
       }
+    } catch (error) {
+      this.setState({ status: 'rejected' });
     }
   };
+
   onNextPage = async () => {
     this.setState({ status: 'pending' });
 
