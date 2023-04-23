@@ -12,10 +12,10 @@ let page = 1;
 export class App extends Component {
   state = {
     inputData: '',
-    items: [],
+    items: [], //масив який містить обєкти з даними про зобаження
 
     status: 'idle',
-    totalHits: 0,
+    totalHits: 0, //загальна кількість забражень
   };
 
   handleSubmit = async inputData => {
