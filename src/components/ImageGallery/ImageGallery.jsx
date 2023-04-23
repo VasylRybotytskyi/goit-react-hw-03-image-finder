@@ -1,7 +1,6 @@
 import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 import { GalleryList } from './ImageGallery.styled';
-
-function ImageGallery({ items }) {
+export const ImageGallery = ({ items }) => {
   return (
     <>
       <GalleryList>
@@ -11,6 +10,4 @@ function ImageGallery({ items }) {
       </GalleryList>
     </>
   );
-}
-
-export default ImageGallery;
+};

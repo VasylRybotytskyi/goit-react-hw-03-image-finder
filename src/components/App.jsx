@@ -4,7 +4,7 @@ import Notiflix from 'notiflix';
 import { Searchbar } from './Searchbar/Searchbar';
 import { Button } from './Button/Button';
 import { Loader } from './Loader/Loader';
-import ImageGallery from './ImageGallery/ImageGallery';
+import { ImageGallery } from './ImageGallery/ImageGallery';
 import { GlobalStyle } from './GlobaStyle';
 
 let page = 1;
@@ -21,7 +21,7 @@ export class App extends Component {
   handleSubmit = async inputData => {
     page = 1;
     if (inputData.trim() === '') {
-      Notiflix.Notify.info('You cannot search by empty field, try again.');
+      Notiflix.Notify.info('You cannot search by empty field, try again.'); //Перевірка чи рядок не пустий
       return;
     } else {
       try {
