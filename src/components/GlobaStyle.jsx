@@ -31,6 +31,6 @@ li {
 }
 
 #root {
-  padding: 20px;
+  padding: 0px;
 }
 `;

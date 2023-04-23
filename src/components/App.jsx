@@ -70,6 +70,7 @@ export class App extends Component {
     if (status === 'pending') {
       return (
         <div>
+          <GlobalStyle />
           <Searchbar onSubmit={this.handleSubmit} />
           <ImageGallery page={page} items={this.state.items} />
           <Loader />

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { FaIconName } from 'react-icons/fa';
+import { Button, Header, Input, Form } from './Searchbar.styled';
 
 export class Searchbar extends Component {
   state = {
@@ -18,11 +18,11 @@ export class Searchbar extends Component {
   render() {
     const { inputData } = this.state.inputData;
     return (
-      <header>
-        <form onSubmit={this.handleSubmit}>
-          <button type="submit">search</button>
+      <Header>
+        <Form onSubmit={this.handleSubmit}>
+          <Button type="submit">search</Button>
 
-          <input
+          <Input
             name="inputData"
             value={inputData}
             onChange={this.onChangeInput}
@@ -31,8 +31,8 @@ export class Searchbar extends Component {
             autoFocus
             placeholder="Search images and photos"
           />
-        </form>
-      </header>
+        </Form>
+      </Header>
     );
   }
 }
