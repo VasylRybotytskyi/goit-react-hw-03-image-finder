@@ -72,7 +72,7 @@ export class App extends Component {
         <div>
           <GlobalStyle />
           <Searchbar onSubmit={this.handleSubmit} />
-          <ImageGallery page={page} items={this.state.items} />
+          <ImageGallery page={page} items={items} />
           <Loader />
           {totalHits > 12 && <Button onClick={this.onNextPage} />}
         </div>
@@ -91,7 +91,7 @@ export class App extends Component {
         <div>
           <GlobalStyle />
           <Searchbar onSubmit={this.handleSubmit} />
-          <ImageGallery page={page} items={this.state.items} />
+          <ImageGallery page={page} items={items} />
           {totalHits > 12 && totalHits > items.length && (
             <Button onClick={this.onNextPage} />
           )}
