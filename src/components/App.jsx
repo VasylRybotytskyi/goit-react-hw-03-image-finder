@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import Button from './Button';
-import ImageGallery from './ImageGallery';
-import './App.css';
 import { fetchImages } from './fetchImages/fetchImages';
-import Searchbar from './Searchbar';
 import Notiflix from 'notiflix';
-import Loader from './Loader';
+import { Searchbar } from './Searchbar/Searchbar';
+import { Button } from './Button/Button';
+import { Loader } from './Loader/Loader';
+import ImageGallery from './ImageGallery/ImageGallery';
+import { GlobalStyle } from './GlobaStyle';
 
 let page = 1;
 
-class App extends Component {
+export class App extends Component {
   state = {
     inputData: '',
     items: [],
@@ -62,14 +62,14 @@ class App extends Component {
     const { totalHits, status, items } = this.state;
     if (status === 'idle') {
       return (
-        <div className="App">
+        <div>
           <Searchbar onSubmit={this.handleSubmit} />
         </div>
       );
     }
     if (status === 'pending') {
       return (
-        <div className="App">
+        <div>
           <Searchbar onSubmit={this.handleSubmit} />
           <ImageGallery page={page} items={this.state.items} />
           <Loader />
@@ -79,7 +79,7 @@ class App extends Component {
     }
     if (status === 'rejected') {
       return (
-        <div className="App">
+        <div>
           <Searchbar onSubmit={this.handleSubmit} />
           <p>Something wrong, try later</p>
         </div>
@@ -87,7 +87,8 @@ class App extends Component {
     }
     if (status === 'resolved') {
       return (
-        <div className="App">
+        <div>
+          <GlobalStyle />
           <Searchbar onSubmit={this.handleSubmit} />
           <ImageGallery page={page} items={this.state.items} />
           {totalHits > 12 && totalHits > items.length && (
@@ -98,4 +99,3 @@ class App extends Component {
     }
   }
 }
-export default App;

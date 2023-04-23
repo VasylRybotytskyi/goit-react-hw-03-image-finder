@@ -1,26 +1,22 @@
+import { Modal } from 'components/Modal/Modal';
 import React, { Component } from 'react';
-import { GalleryImage, GalleryListItem } from './ImageGalleryItem.styled';
-export class ImageGalleryItem extends Component {
-  // handleClick = e => {
-  //   console.log(e.target.src);
-  // };
-  render() {
-    const { items } = this.props;
+import { GalleryImage } from './ImageGalleryItem.styled';
 
+export class ImageGalleryItem extends Component {
+  state = {
+    shownModal: false,
+  };
+  onModal = () => {
+    this.setState(({ shownModal }) => ({ shownModal: !shownModal }));
+  };
+  render() {
+    const { item } = this.props;
+    const { webformatURL } = item;
     return (
-      <>
-        {items &&
-          items.hits &&
-          items.hits.map(el => (
-            <GalleryListItem key={el.id}>
-              <GalleryImage
-                src={el.webformatURL}
-                alt={el.user}
-                onClick={this.props.toggleModal}
-              />
-            </GalleryListItem>
-          ))}
-      </>
+      <li>
+        <GalleryImage onClick={this.onModal} src={webformatURL} alt="img" />
+        {this.state.shownModal && <Modal onClose={this.onModal} image={item} />}
+      </li>
     );
   }
 }

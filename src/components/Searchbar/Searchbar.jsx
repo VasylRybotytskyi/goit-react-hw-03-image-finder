@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { ImSearch } from 'react-icons/im';
+// import { FaIconName } from 'react-icons/fa';
 
-class Searchbar extends Component {
+export class Searchbar extends Component {
   state = {
     inputData: '',
   };
@@ -19,10 +19,8 @@ class Searchbar extends Component {
     const { inputData } = this.state.inputData;
     return (
       <header>
-        <form className="SearchForm" onSubmit={this.handleSubmit}>
-          <button type="submit">
-            <ImSearch size={25} />
-          </button>
+        <form onSubmit={this.handleSubmit}>
+          <button type="submit">search</button>
 
           <input
             name="inputData"
